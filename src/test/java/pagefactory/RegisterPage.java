@@ -54,7 +54,7 @@ public class RegisterPage {
 		}
 	}
 	
-	public void firstnamebutton(String username) 
+	public void firstnamebutton(String firstname) 
 	{
 		
 		try
@@ -62,7 +62,7 @@ public class RegisterPage {
 			if(btn_firstname.isDisplayed())
 			{
 				btn_firstname.click();
-				btn_firstname.sendKeys(username);
+				btn_firstname.sendKeys(firstname);
 		}
 		}
 		catch(Exception e)
@@ -71,7 +71,7 @@ public class RegisterPage {
 		}
 	}
 		
-	public void lastnamebutton(String username) 
+	public void lastnamebutton(String lastname) 
 	{
 		
 		try
@@ -79,7 +79,7 @@ public class RegisterPage {
 			if(btn_lastname.isDisplayed())
 			{
 				btn_lastname.click();
-				btn_lastname.sendKeys(username);
+				btn_lastname.sendKeys(lastname);
 		}
 		}
 		catch(Exception e)
@@ -88,7 +88,7 @@ public class RegisterPage {
 		}
 	}
 				
-	public void email(String username) 
+	public void email(String emailaddress) 
 	{
 		
 		try
@@ -96,7 +96,7 @@ public class RegisterPage {
 			if(btn_email.isDisplayed())
 			{
 				btn_email.click();
-				btn_email.sendKeys(username);
+				btn_email.sendKeys(emailaddress);
 		}
 		}
 		catch(Exception e)
@@ -104,7 +104,7 @@ public class RegisterPage {
 			System.out.println(e.getMessage());
 		}
 	}
-	public void selectcountry(String username) 
+	public void selectcountry(String selectcountry) 
 	{
 		
 		try
@@ -117,7 +117,7 @@ public class RegisterPage {
 			{
 			    System.out.println(e.get(i).getText());
 			}
-			dropDown.selectByVisibleText(username);
+			dropDown.selectByVisibleText(selectcountry);
 		}
 		
 		catch(Exception e)
@@ -126,7 +126,7 @@ public class RegisterPage {
 		}
 	}			
 	
-	public void password(String username) 
+	public void password(String pass) 
 	{
 		
 		try
@@ -134,7 +134,7 @@ public class RegisterPage {
 			if(btn_inputpassword.isDisplayed())
 			{
 				btn_inputpassword.click();
-				btn_inputpassword.sendKeys(username);
+				btn_inputpassword.sendKeys(pass);
 		}
 		}
 		catch(Exception e)
