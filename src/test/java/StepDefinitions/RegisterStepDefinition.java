@@ -8,20 +8,33 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pagefactory.Login_page_opencart;
+import pagefactory.Marketplace;
+import pagefactory.Paymentgateway;
 import pagefactory.RegisterPage;
+import pagefactory.Registerpage_opencart;
 import pagefactory.Registerpageobjects;
+import pagefactory.pagedemoleela;
+import pagefactory.pagedemomani;
 
 public class RegisterStepDefinition {
 	WebDriver driver = null;
 	Login_page_opencart login;
 	RegisterPage reg;
 	Registerpageobjects registerpage;
+	Paymentgateway paymentg;
+	Marketplace mp;
+	pagedemomani pdm;
+	pagedemoleela pdl;
+	Registerpage_opencart roc;
+	
+	
 	
 	@Given("I launch URL")
 	public void browser_is_open() {
-	System.out.println("  ===  I am inside LoginDemoSteps_PF class ===== ");
+	System.out.println("  ===  launching an url ===== ");
 			
 		String projectPath = System.getProperty("user.dir");
 		System.out.println("Project path is : "+projectPath);
@@ -31,7 +44,7 @@ public class RegisterStepDefinition {
 		driver = new ChromeDriver();
 		driver.get("https://www.opencart.com/");
 		
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		
 		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
 	}
 	@And("I click on register button")
@@ -70,16 +83,16 @@ public class RegisterStepDefinition {
 	}
 
 	@When("I select country {string} from the dropdown")
-	public void i_select_country_from_the_dropdown(String drp) {
+	public void i_select_country_from_the_dropdown(String selectcountry) {
 		reg=new RegisterPage(driver);
-		reg.selectcountry(drp);
+		reg.selectcountry(selectcountry);
 		
 	}
 
 	@When("i enter password {string}")
-	public void i_enter_password(String string) {
+	public void i_enter_password(String pass) {
 		reg=new RegisterPage(driver);
-		reg.password(string);
+		reg.password(pass);
 	}
 	
 	@When("I click On register button in opencart page")
@@ -100,5 +113,73 @@ public class RegisterStepDefinition {
 	public void i_enter_as_firstname_in_opencart_page(String firstname) throws Exception {
 		registerpage=new Registerpageobjects(driver);
 		registerpage.inputfirstname(firstname);
+	}
+	
+	@Given("i click on login button")
+	public void i_click_on_login_button() throws Exception {
+		paymentg=new Paymentgateway(driver);
+		paymentg.clickonloginbutton();
+	}
+
+	@Given("user enters {string} as email i")
+	public void user_enters_as_email_i(String string) throws Exception {
+		paymentg=new Paymentgateway(driver);
+		paymentg.enteremailid(string);
+	}
+	@Then("i validate the text {string}")
+	public void i_validate_the_text() {
+		paymentg=new Paymentgateway(driver);
+		paymentg.textvalidation();
+	}
+	
+
+
+	@When("i click on marketplace")
+	public void i_click_on_marketplace() throws Exception {
+	mp=new Marketplace(driver);
+	mp.ClickOnMarketPlaceButton();
+	}
+
+	@Then("i validate text {string}")
+	public void i_validate_text(String string) {
+	    pdm=new pagedemomani(driver);
+	    pdm.sample();
+	    
+	}
+
+	@Then("i click on something")
+	public void i_click_on_something() {
+pdl=new pagedemoleela(driver);
+pdl.demoleela();
+
+	}
+	
+	@When("i select full name as {string}")
+	public void i_select_full_name_as(String fullname) {
+	   roc=new Registerpage_opencart(driver);
+	   roc.clickonfullname(fullname);
+	}
+	@When("i click on forgot your password button")
+	public void i_click_on_forgot_your_password_button() {
+		login=new Login_page_opencart(driver);
+	    login.clickOnforgotpassword();
+	}
+
+	@When("i enter email address as {string}")
+	public void i_enter_email_address_as(String string) {
+		login=new Login_page_opencart(driver);
+	     login.textemail(string);
+	}
+
+	
+	@When("i click on submit button")
+	public void i_click_on_submit_button() throws InterruptedException {
+		login=new Login_page_opencart(driver);
+	    login.clickOnsubmitButton();
+	}
+	@Then("i validate {string}")
+	public void i_validate(String string) {
+		login=new Login_page_opencart(driver);
+		login.successvalidation(string);
 	}
 }

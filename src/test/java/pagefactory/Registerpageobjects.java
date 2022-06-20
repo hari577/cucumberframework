@@ -54,6 +54,7 @@ public class Registerpageobjects {
 		{
 			input_firstname.click();
 			input_firstname.sendKeys(firstname);
+			
 		}
 		else
 		{
