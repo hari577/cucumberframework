@@ -5,7 +5,7 @@ import io.cucumber.junit.CucumberOptions;
 import io.cucumber.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features="src/test/resources/Features/BackgroundDemo/Register_opencart.feature", 
+@CucumberOptions(features="src/test/resources/Features/BackgroundDemo/forgotpassword.feature", 
 glue= {"StepDefinitions"},
 monochrome= true,strict=false,dryRun=false,
 plugin = {"pretty", "junit:target/JUnitReports/report.xml",
@@ -15,4 +15,6 @@ plugin = {"pretty", "junit:target/JUnitReports/report.xml",
 public class TestRunner {
 
 }
+
+
 	
